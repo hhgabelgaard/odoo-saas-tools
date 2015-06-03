@@ -6,7 +6,7 @@
     'website' : 'https://it-projects.info',
 
     'depends' : ['web'],
-    'data':[],
+    'data':['oauth_provider_view.xml'],
     'installable': True,
 
     'description': '''

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- Client -->
+
+        <record id="view_clients_tree" model="ir.ui.view">
+            <field name="name">saas_portal.clients.tree</field>
+            <field name="model">oauth.application</field>
+            <field name="priority">4</field>
+            <field name="arch" type="xml">
+                <tree string="Clients">
+					<field name="name"/>
+                   
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_clients_form" model="ir.ui.view">
+            <field name="name">saas_portal.clients.form</field>
+            <field name="model">oauth.application</field>
+            <field name="arch" type="xml">
+                <form string="Clients">
+                    
+                    <sheet>
+                    <group>
+                        <group>
+                        	<field name="name"/>
+                            <field name="client_id"/>
+                            
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Users">
+                            <field name="token_ids">
+                            	<tree>
+                            		<field name="id"/>
+                            		<field name="user_id"/>
+                            		
+                            	</tree>
+                            	</field>
+                            	
+                        </page>
+                        
+                    </notebook>
+                    </sheet>
+                    
+                </form>
+            </field>
+        </record>
+
+		<record id="action_clients" model="ir.actions.act_window">
+			<field name="name">OAuth Clients</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">oauth.application</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem action="action_clients" id="menu_clients" parent="base.menu_users"
+			sequence="10" />
+
+	</data>
+</openerp>
